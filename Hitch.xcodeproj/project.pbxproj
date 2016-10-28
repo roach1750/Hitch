@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2149DFFC1DC2E57F003331E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2149DFFB1DC2E57F003331E5 /* AppDelegate.swift */; };
+		2149E0041DC2E57F003331E5 /* Hitch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2149E0021DC2E57F003331E5 /* Hitch.xcdatamodeld */; };
+		2149E0061DC2E57F003331E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2149E0051DC2E57F003331E5 /* Assets.xcassets */; };
+		2149E0091DC2E57F003331E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2149E0071DC2E57F003331E5 /* LaunchScreen.storyboard */; };
+		21F0EACC1DC2E85700B15BCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F0EAC91DC2E85700B15BCB /* Main.storyboard */; };
+		21F0EACD1DC2E85700B15BCB /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EACA1DC2E85700B15BCB /* MapVC.swift */; };
+		21F0EACE1DC2E85700B15BCB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EACB1DC2E85700B15BCB /* LoginVC.swift */; };
+		21F0EAD81DC2E87500B15BCB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EACF1DC2E87500B15BCB /* User.swift */; };
+		21F0EAD91DC2E87500B15BCB /* GooglePlaceFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAD01DC2E87500B15BCB /* GooglePlaceFetcher.swift */; };
+		21F0EADA1DC2E87500B15BCB /* RealmInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAD11DC2E87500B15BCB /* RealmInteractor.swift */; };
+		21F0EADB1DC2E87500B15BCB /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAD21DC2E87500B15BCB /* Waypoint.swift */; };
+		21F0EADC1DC2E87500B15BCB /* KinveyUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAD31DC2E87500B15BCB /* KinveyUploader.swift */; };
+		21F0EADD1DC2E87500B15BCB /* WaypointMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAD41DC2E87500B15BCB /* WaypointMapAnnotation.swift */; };
+		21F0EADE1DC2E87500B15BCB /* FavoritePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAD51DC2E87500B15BCB /* FavoritePlace.swift */; };
+		21F0EADF1DC2E87500B15BCB /* Proposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAD61DC2E87500B15BCB /* Proposer.swift */; };
+		21F0EAE01DC2E87500B15BCB /* Arlington.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 21F0EAD71DC2E87500B15BCB /* Arlington.gpx */; };
+		21F0EAE31DC2E9E200B15BCB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F0EAE21DC2E9E200B15BCB /* MapKit.framework */; };
+		607F8D45155725F3F02EEB0C /* Pods_Hitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D994479FD08C11FDAE2244 /* Pods_Hitch.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2149DFF81DC2E57F003331E5 /* Hitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2149DFFB1DC2E57F003331E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2149E0031DC2E57F003331E5 /* Hitch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hitch.xcdatamodel; sourceTree = "<group>"; };
+		2149E0051DC2E57F003331E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2149E0081DC2E57F003331E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2149E00A1DC2E57F003331E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21F0EAC91DC2E85700B15BCB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		21F0EACA1DC2E85700B15BCB /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		21F0EACB1DC2E85700B15BCB /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		21F0EACF1DC2E87500B15BCB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		21F0EAD01DC2E87500B15BCB /* GooglePlaceFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlaceFetcher.swift; sourceTree = "<group>"; };
+		21F0EAD11DC2E87500B15BCB /* RealmInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmInteractor.swift; sourceTree = "<group>"; };
+		21F0EAD21DC2E87500B15BCB /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waypoint.swift; sourceTree = "<group>"; };
+		21F0EAD31DC2E87500B15BCB /* KinveyUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyUploader.swift; sourceTree = "<group>"; };
+		21F0EAD41DC2E87500B15BCB /* WaypointMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointMapAnnotation.swift; sourceTree = "<group>"; };
+		21F0EAD51DC2E87500B15BCB /* FavoritePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritePlace.swift; sourceTree = "<group>"; };
+		21F0EAD61DC2E87500B15BCB /* Proposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proposer.swift; sourceTree = "<group>"; };
+		21F0EAD71DC2E87500B15BCB /* Arlington.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Arlington.gpx; sourceTree = "<group>"; };
+		21F0EAE11DC2E9DE00B15BCB /* Hitch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hitch.entitlements; sourceTree = "<group>"; };
+		21F0EAE21DC2E9E200B15BCB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2B0AE04A52872025DCCA5FE3 /* Pods-Hitch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hitch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hitch/Pods-Hitch.debug.xcconfig"; sourceTree = "<group>"; };
+		A262FC1D15AB7D34282EDA9A /* Pods-Hitch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hitch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hitch/Pods-Hitch.release.xcconfig"; sourceTree = "<group>"; };
+		D3D994479FD08C11FDAE2244 /* Pods_Hitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2149DFF51DC2E57F003331E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F0EAE31DC2E9E200B15BCB /* MapKit.framework in Frameworks */,
+				607F8D45155725F3F02EEB0C /* Pods_Hitch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		128E121172222B9897C4037E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B0AE04A52872025DCCA5FE3 /* Pods-Hitch.debug.xcconfig */,
+				A262FC1D15AB7D34282EDA9A /* Pods-Hitch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2149DFEF1DC2E57F003331E5 = {
+			isa = PBXGroup;
+			children = (
+				2149DFFA1DC2E57F003331E5 /* Hitch */,
+				2149DFF91DC2E57F003331E5 /* Products */,
+				128E121172222B9897C4037E /* Pods */,
+				6E6AD095514FD049A17F08B7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2149DFF91DC2E57F003331E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2149DFF81DC2E57F003331E5 /* Hitch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2149DFFA1DC2E57F003331E5 /* Hitch */ = {
+			isa = PBXGroup;
+			children = (
+				21F0EAE11DC2E9DE00B15BCB /* Hitch.entitlements */,
+				2149DFFB1DC2E57F003331E5 /* AppDelegate.swift */,
+				21F0EAC91DC2E85700B15BCB /* Main.storyboard */,
+				21F0EACA1DC2E85700B15BCB /* MapVC.swift */,
+				21F0EACB1DC2E85700B15BCB /* LoginVC.swift */,
+				21F0EAE51DC2EAB200B15BCB /* Model */,
+				21F0EAE41DC2EA9D00B15BCB /* Helpers */,
+				2149E0051DC2E57F003331E5 /* Assets.xcassets */,
+				2149E0071DC2E57F003331E5 /* LaunchScreen.storyboard */,
+				2149E00A1DC2E57F003331E5 /* Info.plist */,
+				2149E0021DC2E57F003331E5 /* Hitch.xcdatamodeld */,
+			);
+			path = Hitch;
+			sourceTree = "<group>";
+		};
+		21F0EAE41DC2EA9D00B15BCB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				21F0EAD61DC2E87500B15BCB /* Proposer.swift */,
+				21F0EAD71DC2E87500B15BCB /* Arlington.gpx */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		21F0EAE51DC2EAB200B15BCB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21F0EACF1DC2E87500B15BCB /* User.swift */,
+				21F0EAD01DC2E87500B15BCB /* GooglePlaceFetcher.swift */,
+				21F0EAD11DC2E87500B15BCB /* RealmInteractor.swift */,
+				21F0EAD21DC2E87500B15BCB /* Waypoint.swift */,
+				21F0EAD31DC2E87500B15BCB /* KinveyUploader.swift */,
+				21F0EAD41DC2E87500B15BCB /* WaypointMapAnnotation.swift */,
+				21F0EAD51DC2E87500B15BCB /* FavoritePlace.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6E6AD095514FD049A17F08B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21F0EAE21DC2E9E200B15BCB /* MapKit.framework */,
+				D3D994479FD08C11FDAE2244 /* Pods_Hitch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2149DFF71DC2E57F003331E5 /* Hitch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2149E00D1DC2E57F003331E5 /* Build configuration list for PBXNativeTarget "Hitch" */;
+			buildPhases = (
+				DF57FB9847E6F27F0A647453 /* Check Pods Manifest.lock */,
+				2149DFF41DC2E57F003331E5 /* Sources */,
+				2149DFF51DC2E57F003331E5 /* Frameworks */,
+				2149DFF61DC2E57F003331E5 /* Resources */,
+				D8B3DAD9130FFDA7B66CBC4D /* Embed Pods Frameworks */,
+				5F7FC507D2B8D30B72CD0017 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hitch;
+			productName = Hitch;
+			productReference = 2149DFF81DC2E57F003331E5 /* Hitch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2149DFF01DC2E57F003331E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Andrew Roach";
+				TargetAttributes = {
+					2149DFF71DC2E57F003331E5 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = P44AL382B9;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 2149DFF31DC2E57F003331E5 /* Build configuration list for PBXProject "Hitch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2149DFEF1DC2E57F003331E5;
+			productRefGroup = 2149DFF91DC2E57F003331E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2149DFF71DC2E57F003331E5 /* Hitch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2149DFF61DC2E57F003331E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F0EAE01DC2E87500B15BCB /* Arlington.gpx in Resources */,
+				21F0EACC1DC2E85700B15BCB /* Main.storyboard in Resources */,
+				2149E0091DC2E57F003331E5 /* LaunchScreen.storyboard in Resources */,
+				2149E0061DC2E57F003331E5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F7FC507D2B8D30B72CD0017 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hitch/Pods-Hitch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8B3DAD9130FFDA7B66CBC4D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hitch/Pods-Hitch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF57FB9847E6F27F0A647453 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2149DFF41DC2E57F003331E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2149E0041DC2E57F003331E5 /* Hitch.xcdatamodeld in Sources */,
+				21F0EADE1DC2E87500B15BCB /* FavoritePlace.swift in Sources */,
+				21F0EADA1DC2E87500B15BCB /* RealmInteractor.swift in Sources */,
+				21F0EADF1DC2E87500B15BCB /* Proposer.swift in Sources */,
+				21F0EACD1DC2E85700B15BCB /* MapVC.swift in Sources */,
+				21F0EACE1DC2E85700B15BCB /* LoginVC.swift in Sources */,
+				21F0EADB1DC2E87500B15BCB /* Waypoint.swift in Sources */,
+				21F0EAD81DC2E87500B15BCB /* User.swift in Sources */,
+				21F0EAD91DC2E87500B15BCB /* GooglePlaceFetcher.swift in Sources */,
+				21F0EADC1DC2E87500B15BCB /* KinveyUploader.swift in Sources */,
+				21F0EADD1DC2E87500B15BCB /* WaypointMapAnnotation.swift in Sources */,
+				2149DFFC1DC2E57F003331E5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2149E0071DC2E57F003331E5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2149E0081DC2E57F003331E5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2149E00B1DC2E57F003331E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = Hitch/Header.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2149E00C1DC2E57F003331E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = Hitch/Header.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2149E00E1DC2E57F003331E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B0AE04A52872025DCCA5FE3 /* Pods-Hitch.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hitch/Hitch.entitlements;
+				DEVELOPMENT_TEAM = P44AL382B9;
+				INFOPLIST_FILE = Hitch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = awesomeApps.Hitch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2149E00F1DC2E57F003331E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A262FC1D15AB7D34282EDA9A /* Pods-Hitch.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hitch/Hitch.entitlements;
+				DEVELOPMENT_TEAM = P44AL382B9;
+				INFOPLIST_FILE = Hitch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = awesomeApps.Hitch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2149DFF31DC2E57F003331E5 /* Build configuration list for PBXProject "Hitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2149E00B1DC2E57F003331E5 /* Debug */,
+				2149E00C1DC2E57F003331E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2149E00D1DC2E57F003331E5 /* Build configuration list for PBXNativeTarget "Hitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2149E00E1DC2E57F003331E5 /* Debug */,
+				2149E00F1DC2E57F003331E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2149E0021DC2E57F003331E5 /* Hitch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2149E0031DC2E57F003331E5 /* Hitch.xcdatamodel */,
+			);
+			currentVersion = 2149E0031DC2E57F003331E5 /* Hitch.xcdatamodel */;
+			path = Hitch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2149DFF01DC2E57F003331E5 /* Project object */;
+}
