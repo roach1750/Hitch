@@ -40,7 +40,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
         self.title = "Hitch"
     }
     
-    func titleTapped() {
+    @IBAction func uploadButtonPressed(_ sender: UIBarButtonItem) {
         let kUP = KinveyUploader()
         let sourceWaypoint = Waypoint()
         sourceWaypoint.location = currentLocation!
@@ -57,6 +57,10 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
         destinationWaypoint.matched = false
         destinationWaypoint.location = CLLocation(latitude: (GPF.currentResult?.coordinate.latitude)!, longitude: (GPF.currentResult?.coordinate.longitude)!)
         kUP.uploadWayPoint(wayPoint: destinationWaypoint)
+        
+    }
+    func titleTapped() {
+
     }
     
     func reloadTable() {
