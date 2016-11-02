@@ -18,7 +18,7 @@ class KinveyUploader: NSObject {
         
         _ = store?.save(wayPoint, withCompletionBlock: { (results, error) in
             if error != nil {
-                print(error)
+                print(error as! String)
             }
             else {
                 print("Saved Waypoint\((results?[0] as! NSObject).kinveyObjectId())")
@@ -26,4 +26,5 @@ class KinveyUploader: NSObject {
             }, withProgressBlock: nil)
         
     }
+    
 }

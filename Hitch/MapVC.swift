@@ -29,39 +29,35 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
         super.viewDidLoad()
         requestLocationData()
         tableView.isHidden = true
-        print("User Is: \(KCSUser.active())")
+        print("User Is: \(KCSUser.active().username)")
         NotificationCenter.default.addObserver(self, selector: #selector(MapVC.reloadTable), name: NSNotification.Name(rawValue: "GoogleAutoCompleteDone"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(MapVC.addPlaceToMap), name: NSNotification.Name(rawValue: "GMSPlaceDownloaded"), object: nil)
         
-        let tgr = UITapGestureRecognizer(target: self, action: #selector(MapVC.titleTapped))
-        tgr.numberOfTapsRequired = 1
-        self.navigationController?.navigationBar.subviews[1].isUserInteractionEnabled = true
-        self.navigationController?.navigationBar.subviews[1].addGestureRecognizer(tgr)
         self.title = "Hitch"
     }
     
     @IBAction func uploadButtonPressed(_ sender: UIBarButtonItem) {
-        let kUP = KinveyUploader()
-        let sourceWaypoint = Waypoint()
-        sourceWaypoint.location = currentLocation!
-        sourceWaypoint.isDestination = NSNumber(booleanLiteral: false)
-        sourceWaypoint.user = KCSUser.active()
-        sourceWaypoint.driver =  NSNumber(booleanLiteral: driverSwitch.isOn)
-        sourceWaypoint.matched = false
-        kUP.uploadWayPoint(wayPoint: sourceWaypoint)
         
-        let destinationWaypoint = Waypoint()
-        destinationWaypoint.isDestination = NSNumber(booleanLiteral: true)
-        destinationWaypoint.user = KCSUser.active()
-        destinationWaypoint.driver =  NSNumber(booleanLiteral: driverSwitch.isOn)
-        destinationWaypoint.matched = false
-        destinationWaypoint.location = CLLocation(latitude: (GPF.currentResult?.coordinate.latitude)!, longitude: (GPF.currentResult?.coordinate.longitude)!)
+        let kUP = KinveyUploader()
+        let sourceWaypoint = Waypoint.createWaypoint(location: currentLocation!, isDestination: NSNumber(booleanLiteral: false), driver: NSNumber(booleanLiteral: driverSwitch.isOn), matched: false, user: KCSUser.active())
+        
+        let destinationWaypoint = Waypoint.createWaypoint(location: CLLocation(latitude: (GPF.currentResult?.coordinate.latitude)!, longitude: (GPF.currentResult?.coordinate.longitude)!), isDestination: NSNumber(booleanLiteral: true), driver: NSNumber(booleanLiteral: driverSwitch.isOn), matched: false, user: KCSUser.active())
+        
+        let cDI = CoreDataInteractor()
+        let trip = cDI.createTrip(dLat: Double(destinationWaypoint.location.coordinate.latitude),
+                                   dLong: Double(destinationWaypoint.location.coordinate.longitude),
+                                   oLat: Double(sourceWaypoint.location.coordinate.latitude),
+                                   oLong: Double(sourceWaypoint.location.coordinate.longitude))
+        
+//        _ = Trip.tripWithTripInfo(trip, inManagedObjectContext: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+        cDI.saveTripToCoreData(newTrip: trip)
+        
+        kUP.uploadWayPoint(wayPoint: sourceWaypoint)
         kUP.uploadWayPoint(wayPoint: destinationWaypoint)
         
+        
     }
-    func titleTapped() {
 
-    }
     
     func reloadTable() {
         tableView.reloadData()

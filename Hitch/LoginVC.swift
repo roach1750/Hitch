@@ -38,7 +38,7 @@ class LoginVC: UIViewController {
     @IBAction func createUserButtonPressed(_ sender: UIButton) {
         
         print(firstNameTextField.text!)
-        print(lastNameTextField.text)
+        print(lastNameTextField.text!)
         
         
         

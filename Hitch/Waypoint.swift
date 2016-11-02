@@ -17,6 +17,17 @@ class Waypoint: NSObject {
     dynamic var user: KCSUser!
     dynamic var entityID: String?
     
+
+    class func createWaypoint (location:CLLocation, isDestination: NSNumber, driver: NSNumber, matched: NSNumber, user: KCSUser) -> Waypoint {
+        let wp = Waypoint()
+        wp.location = location
+        wp.isDestination = isDestination
+        wp.driver = driver
+        wp.user = user
+        return wp
+    }
+    
+    
     override func hostToKinveyPropertyMapping() -> [AnyHashable : Any]! {
         return [
             "location" : KCSEntityKeyGeolocation,

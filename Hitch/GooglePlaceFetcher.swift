@@ -33,7 +33,7 @@ class GooglePlaceFetcher: NSObject {
         
         placesClient.autocompleteQuery(string, bounds: bounds, filter: filter) { (results, error) in
             if error != nil {
-                print(error)
+                print(error as! String)
             }
             else {
                 self.results = results

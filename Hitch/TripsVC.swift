@@ -15,14 +15,28 @@ class TripsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    @IBAction func reloadData(_ sender: UIBarButtonItem) {
+        let cDI = CoreDataInteractor()
+        cDI.fetchAllTripsFromCoreData()
+
     }
+    
+    @IBAction func deleteAllData(_ sender: UIBarButtonItem) {
+        let cDI = CoreDataInteractor()
+        cDI.deleteAllPostFromCoreDatabase()
+    }
+    
+
+    @IBAction func printObjects(_ sender: UIBarButtonItem) {
+        let cDI = CoreDataInteractor()
+        cDI.fetchAllTripsFromCoreData()
+    }
+    
     
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

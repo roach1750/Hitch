@@ -11,6 +11,9 @@
 		2149E0041DC2E57F003331E5 /* Hitch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2149E0021DC2E57F003331E5 /* Hitch.xcdatamodeld */; };
 		2149E0061DC2E57F003331E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2149E0051DC2E57F003331E5 /* Assets.xcassets */; };
 		2149E0091DC2E57F003331E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2149E0071DC2E57F003331E5 /* LaunchScreen.storyboard */; };
+		21AC33651DC965DA00A84D02 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC33641DC965DA00A84D02 /* Trip+CoreDataProperties.swift */; };
+		21AC33671DC9679E00A84D02 /* KinveyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC33661DC9679E00A84D02 /* KinveyFetcher.swift */; };
+		21AC33691DC96B1C00A84D02 /* CoreDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC33681DC96B1C00A84D02 /* CoreDataInteractor.swift */; };
 		21F0EACC1DC2E85700B15BCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F0EAC91DC2E85700B15BCB /* Main.storyboard */; };
 		21F0EACD1DC2E85700B15BCB /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EACA1DC2E85700B15BCB /* MapVC.swift */; };
 		21F0EACE1DC2E85700B15BCB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EACB1DC2E85700B15BCB /* LoginVC.swift */; };
@@ -26,7 +29,6 @@
 		21F0EAE31DC2E9E200B15BCB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F0EAE21DC2E9E200B15BCB /* MapKit.framework */; };
 		21F0EAE71DC2ED8C00B15BCB /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAE61DC2ED8C00B15BCB /* TripsVC.swift */; };
 		21F0EAF01DC2EEF100B15BCB /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAEE1DC2EEF100B15BCB /* Trip+CoreDataClass.swift */; };
-		21F0EAF11DC2EEF100B15BCB /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EAEF1DC2EEF100B15BCB /* Trip+CoreDataProperties.swift */; };
 		607F8D45155725F3F02EEB0C /* Pods_Hitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D994479FD08C11FDAE2244 /* Pods_Hitch.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,9 @@
 		2149E0051DC2E57F003331E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2149E0081DC2E57F003331E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2149E00A1DC2E57F003331E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21AC33641DC965DA00A84D02 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		21AC33661DC9679E00A84D02 /* KinveyFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyFetcher.swift; sourceTree = "<group>"; };
+		21AC33681DC96B1C00A84D02 /* CoreDataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInteractor.swift; sourceTree = "<group>"; };
 		21F0EAC91DC2E85700B15BCB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		21F0EACA1DC2E85700B15BCB /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		21F0EACB1DC2E85700B15BCB /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -53,7 +58,6 @@
 		21F0EAE21DC2E9E200B15BCB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		21F0EAE61DC2ED8C00B15BCB /* TripsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
 		21F0EAEE1DC2EEF100B15BCB /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
-		21F0EAEF1DC2EEF100B15BCB /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2B0AE04A52872025DCCA5FE3 /* Pods-Hitch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hitch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hitch/Pods-Hitch.debug.xcconfig"; sourceTree = "<group>"; };
 		A262FC1D15AB7D34282EDA9A /* Pods-Hitch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hitch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hitch/Pods-Hitch.release.xcconfig"; sourceTree = "<group>"; };
 		D3D994479FD08C11FDAE2244 /* Pods_Hitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,14 +133,16 @@
 		21F0EAE51DC2EAB200B15BCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				21F0EAEE1DC2EEF100B15BCB /* Trip+CoreDataClass.swift */,
-				21F0EAEF1DC2EEF100B15BCB /* Trip+CoreDataProperties.swift */,
 				2149E0021DC2E57F003331E5 /* Hitch.xcdatamodeld */,
+				21F0EAEE1DC2EEF100B15BCB /* Trip+CoreDataClass.swift */,
+				21AC33641DC965DA00A84D02 /* Trip+CoreDataProperties.swift */,
 				21F0EACF1DC2E87500B15BCB /* User.swift */,
+				21F0EAD21DC2E87500B15BCB /* Waypoint.swift */,
 				21F0EAD01DC2E87500B15BCB /* GooglePlaceFetcher.swift */,
 				21F0EAD11DC2E87500B15BCB /* RealmInteractor.swift */,
-				21F0EAD21DC2E87500B15BCB /* Waypoint.swift */,
+				21AC33681DC96B1C00A84D02 /* CoreDataInteractor.swift */,
 				21F0EAD31DC2E87500B15BCB /* KinveyUploader.swift */,
+				21AC33661DC9679E00A84D02 /* KinveyFetcher.swift */,
 				21F0EAD41DC2E87500B15BCB /* WaypointMapAnnotation.swift */,
 				21F0EAD51DC2E87500B15BCB /* FavoritePlace.swift */,
 			);
@@ -289,8 +295,9 @@
 				2149E0041DC2E57F003331E5 /* Hitch.xcdatamodeld in Sources */,
 				21F0EADE1DC2E87500B15BCB /* FavoritePlace.swift in Sources */,
 				21F0EADA1DC2E87500B15BCB /* RealmInteractor.swift in Sources */,
-				21F0EAF11DC2EEF100B15BCB /* Trip+CoreDataProperties.swift in Sources */,
+				21AC33651DC965DA00A84D02 /* Trip+CoreDataProperties.swift in Sources */,
 				21F0EADF1DC2E87500B15BCB /* Proposer.swift in Sources */,
+				21AC33671DC9679E00A84D02 /* KinveyFetcher.swift in Sources */,
 				21F0EACD1DC2E85700B15BCB /* MapVC.swift in Sources */,
 				21F0EACE1DC2E85700B15BCB /* LoginVC.swift in Sources */,
 				21F0EADB1DC2E87500B15BCB /* Waypoint.swift in Sources */,
@@ -299,6 +306,7 @@
 				21F0EAD91DC2E87500B15BCB /* GooglePlaceFetcher.swift in Sources */,
 				21F0EADC1DC2E87500B15BCB /* KinveyUploader.swift in Sources */,
 				21F0EADD1DC2E87500B15BCB /* WaypointMapAnnotation.swift in Sources */,
+				21AC33691DC96B1C00A84D02 /* CoreDataInteractor.swift in Sources */,
 				2149DFFC1DC2E57F003331E5 /* AppDelegate.swift in Sources */,
 				21F0EAE71DC2ED8C00B15BCB /* TripsVC.swift in Sources */,
 			);

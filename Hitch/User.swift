@@ -68,7 +68,7 @@ class User: NSObject {
                                     print(KCSUser.active())
 
                                 } else {
-                                    print(error)
+                                    print(error as! String)
                                 }
                 })
             }

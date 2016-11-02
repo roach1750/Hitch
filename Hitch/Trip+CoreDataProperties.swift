@@ -2,7 +2,7 @@
 //  Trip+CoreDataProperties.swift
 //  
 //
-//  Created by Andrew Roach on 10/27/16.
+//  Created by Andrew Roach on 11/1/16.
 //
 //
 
@@ -16,9 +16,12 @@ extension Trip {
         return NSFetchRequest<Trip>(entityName: "Trip");
     }
 
-    @NSManaged public var originLatitude: Double
-    @NSManaged public var originLongitude: Double
     @NSManaged public var destinationLatitude: Double
     @NSManaged public var detinationLongitude: Double
+    @NSManaged public var originLatitude: Double
+    @NSManaged public var originLongitude: Double
+    @NSManaged public var entityID: String?
+    @NSManaged public var creationDate: Date?
+
 
 }
