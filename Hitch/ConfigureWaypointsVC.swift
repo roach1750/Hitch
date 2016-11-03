@@ -36,7 +36,7 @@ class ConfigureWaypointsVC: UIViewController {
                                   oLat: Double(originWaypoint!.location.coordinate.latitude),
                                   oLong: Double(originWaypoint.location.coordinate.longitude))
         
-        //        _ = Trip.tripWithTripInfo(trip, inManagedObjectContext: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+                _ = Trip.tripWithTripInfo(trip, inManagedObjectContext: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
         cDI.saveTripToCoreData(newTrip: trip)
         
         let kUP = KinveyUploader()
@@ -44,6 +44,16 @@ class ConfigureWaypointsVC: UIViewController {
         kUP.uploadWayPoint(wayPoint: destinationWaypoint!)
         
         
+        
+        let allViewController: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+        
+        for aviewcontroller : UIViewController in allViewController
+        {
+            if aviewcontroller is TripsVC
+            {
+                _ = self.navigationController?.popToViewController(aviewcontroller, animated: true)
+            }
+        }
         
         
         
