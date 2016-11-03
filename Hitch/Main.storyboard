@@ -72,11 +72,6 @@
                                         </switch>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VCY-l6-UWl"/>
-                                    <barButtonItem title="Upload" id="zCz-Qw-JZn">
-                                        <connections>
-                                            <action selector="uploadButtonPressed:" destination="BYZ-38-t0r" id="fnj-1P-oER"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem title="Clear" id="3ZF-NN-ama">
                                         <connections>
                                             <action selector="clearButtonPressed:" destination="BYZ-38-t0r" id="QEn-cI-ViM"/>
@@ -104,22 +99,95 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Hitch - Driver" id="WEM-LR-g5l">
-                        <barButtonItem key="rightBarButtonItem" title="Login" id="Qls-pe-8Za">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="zCz-Qw-JZn">
                             <connections>
-                                <segue destination="scZ-WS-aw0" kind="presentation" id="QYi-03-FOh"/>
+                                <action selector="nextButtonPressed:" destination="BYZ-38-t0r" id="cqh-D4-RHf"/>
+                                <segue destination="H9I-Bh-PRk" kind="show" identifier="configureTime" id="1ci-5i-NHh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="driverSwitch" destination="1b7-2x-avA" id="fae-Oo-KMf"/>
                         <outlet property="mapView" destination="lQY-QZ-UeM" id="7Q7-Ms-BSx"/>
+                        <outlet property="nextButton" destination="zCz-Qw-JZn" id="lCU-Hn-v3l"/>
                         <outlet property="searchBar" destination="WvK-Zn-WEL" id="eeD-D7-DW1"/>
                         <outlet property="tableView" destination="K93-I3-baq" id="yr3-Ie-7SX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="-546"/>
+            <point key="canvasLocation" x="1900" y="-546"/>
+        </scene>
+        <!--Select Times-->
+        <scene sceneID="6XU-Uw-ogt">
+            <objects>
+                <viewController id="H9I-Bh-PRk" customClass="ConfigureWaypointsVC" customModule="Hitch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vYY-wG-wyW"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oti-ad-D5g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sba-pd-2hk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Origin Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0w-Ma-nan">
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="qIz-A8-dJF">
+                                <rect key="frame" x="0.0" y="101" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="499823206.59714597">
+                                    <!--2016-11-02 23:46:46 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="rzv-bN-Hf0">
+                                <rect key="frame" x="0.0" y="352" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="499823265.64742798">
+                                    <!--2016-11-02 23:47:45 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ur5-B9-SZW">
+                                <rect key="frame" x="16" y="323" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qIz-A8-dJF" secondAttribute="trailing" id="0Ns-XI-IhY"/>
+                            <constraint firstItem="qIz-A8-dJF" firstAttribute="centerX" secondItem="ur5-B9-SZW" secondAttribute="centerX" id="7qU-hJ-JIc"/>
+                            <constraint firstItem="qIz-A8-dJF" firstAttribute="leading" secondItem="Sba-pd-2hk" secondAttribute="leading" id="8wv-ij-fXs"/>
+                            <constraint firstItem="e0w-Ma-nan" firstAttribute="top" secondItem="vYY-wG-wyW" secondAttribute="bottom" constant="8" symbolic="YES" id="NcU-6c-7sb"/>
+                            <constraint firstItem="ur5-B9-SZW" firstAttribute="centerY" secondItem="Sba-pd-2hk" secondAttribute="centerY" id="PVx-3v-RBU"/>
+                            <constraint firstItem="qIz-A8-dJF" firstAttribute="trailing" secondItem="rzv-bN-Hf0" secondAttribute="trailing" id="RDI-EL-tne"/>
+                            <constraint firstItem="e0w-Ma-nan" firstAttribute="leading" secondItem="Sba-pd-2hk" secondAttribute="leadingMargin" id="ZGG-8X-3w3"/>
+                            <constraint firstItem="rzv-bN-Hf0" firstAttribute="top" secondItem="ur5-B9-SZW" secondAttribute="bottom" constant="8" symbolic="YES" id="hUP-cx-uiA"/>
+                            <constraint firstItem="qIz-A8-dJF" firstAttribute="top" secondItem="e0w-Ma-nan" secondAttribute="bottom" constant="8" symbolic="YES" id="hX0-S3-6b9"/>
+                            <constraint firstItem="e0w-Ma-nan" firstAttribute="leading" secondItem="ur5-B9-SZW" secondAttribute="leading" id="iSM-j4-5Bh"/>
+                            <constraint firstItem="e0w-Ma-nan" firstAttribute="trailing" secondItem="ur5-B9-SZW" secondAttribute="trailing" id="oR8-Fh-2Fq"/>
+                            <constraint firstItem="qIz-A8-dJF" firstAttribute="leading" secondItem="rzv-bN-Hf0" secondAttribute="leading" id="xUU-lD-wlS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Times" id="igU-Z0-rQZ">
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="W4b-1H-wKQ">
+                            <connections>
+                                <action selector="uploadButtonPressed:" destination="H9I-Bh-PRk" id="OZm-s8-xkz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="destinationDatePicker" destination="rzv-bN-Hf0" id="EAB-WB-6mB"/>
+                        <outlet property="destinationLabel" destination="ur5-B9-SZW" id="N1w-Dm-yX6"/>
+                        <outlet property="originDatePicker" destination="qIz-A8-dJF" id="ZkY-Aq-xyw"/>
+                        <outlet property="originLabel" destination="e0w-Ma-nan" id="GUM-JZ-DLC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2E-qK-i4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2832.8000000000002" y="-546.47676161919048"/>
         </scene>
         <!--Trips-->
         <scene sceneID="rqS-8v-D0M">
@@ -172,17 +240,19 @@
                                     <action selector="deleteAllData:" destination="Sea-Rl-Hw1" id="6xC-hd-vMB"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="play" id="oKQ-Lq-NfP">
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="5Aj-mX-4My">
                                 <connections>
-                                    <action selector="printObjects:" destination="Sea-Rl-Hw1" id="dKj-ZB-JxB"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="u0H-H2-LiX"/>
                                 </connections>
                             </barButtonItem>
-                        </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Aj-mX-4My">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="u0H-H2-LiX"/>
-                            </connections>
-                        </barButtonItem>
+                            <barButtonItem title="Login" id="p3S-N1-P3J">
+                                <connections>
+                                    <segue destination="scZ-WS-aw0" kind="show" id="HsL-F5-W2F"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="RVV-JD-KpT" id="7PZ-pZ-ghl"/>
@@ -282,7 +352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kky-RR-GOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3727.1999999999998" y="-810.0449775112445"/>
+            <point key="canvasLocation" x="2095" y="-1480"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mvd-Py-DoU">
@@ -322,7 +392,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oM9-CV-x9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2788" y="-810.0449775112445"/>
+            <point key="canvasLocation" x="1504" y="-1480"/>
         </scene>
     </scenes>
 </document>

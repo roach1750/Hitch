@@ -14,6 +14,7 @@
 		21AC33651DC965DA00A84D02 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC33641DC965DA00A84D02 /* Trip+CoreDataProperties.swift */; };
 		21AC33671DC9679E00A84D02 /* KinveyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC33661DC9679E00A84D02 /* KinveyFetcher.swift */; };
 		21AC33691DC96B1C00A84D02 /* CoreDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC33681DC96B1C00A84D02 /* CoreDataInteractor.swift */; };
+		21AC336B1DCAB12000A84D02 /* ConfigureWaypointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC336A1DCAB12000A84D02 /* ConfigureWaypointsVC.swift */; };
 		21F0EACC1DC2E85700B15BCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F0EAC91DC2E85700B15BCB /* Main.storyboard */; };
 		21F0EACD1DC2E85700B15BCB /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EACA1DC2E85700B15BCB /* MapVC.swift */; };
 		21F0EACE1DC2E85700B15BCB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F0EACB1DC2E85700B15BCB /* LoginVC.swift */; };
@@ -42,6 +43,7 @@
 		21AC33641DC965DA00A84D02 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		21AC33661DC9679E00A84D02 /* KinveyFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyFetcher.swift; sourceTree = "<group>"; };
 		21AC33681DC96B1C00A84D02 /* CoreDataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInteractor.swift; sourceTree = "<group>"; };
+		21AC336A1DCAB12000A84D02 /* ConfigureWaypointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureWaypointsVC.swift; sourceTree = "<group>"; };
 		21F0EAC91DC2E85700B15BCB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		21F0EACA1DC2E85700B15BCB /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		21F0EACB1DC2E85700B15BCB /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				21F0EAC91DC2E85700B15BCB /* Main.storyboard */,
 				21F0EAE61DC2ED8C00B15BCB /* TripsVC.swift */,
 				21F0EACA1DC2E85700B15BCB /* MapVC.swift */,
+				21AC336A1DCAB12000A84D02 /* ConfigureWaypointsVC.swift */,
 				21F0EACB1DC2E85700B15BCB /* LoginVC.swift */,
 				21F0EAE51DC2EAB200B15BCB /* Model */,
 				21F0EAE41DC2EA9D00B15BCB /* Helpers */,
@@ -300,6 +303,7 @@
 				21AC33671DC9679E00A84D02 /* KinveyFetcher.swift in Sources */,
 				21F0EACD1DC2E85700B15BCB /* MapVC.swift in Sources */,
 				21F0EACE1DC2E85700B15BCB /* LoginVC.swift in Sources */,
+				21AC336B1DCAB12000A84D02 /* ConfigureWaypointsVC.swift in Sources */,
 				21F0EADB1DC2E87500B15BCB /* Waypoint.swift in Sources */,
 				21F0EAD81DC2E87500B15BCB /* User.swift in Sources */,
 				21F0EAF01DC2EEF100B15BCB /* Trip+CoreDataClass.swift in Sources */,

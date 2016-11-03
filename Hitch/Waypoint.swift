@@ -16,14 +16,16 @@ class Waypoint: NSObject {
     dynamic var matched: NSNumber!
     dynamic var user: KCSUser!
     dynamic var entityID: String?
-    
+    dynamic var date: Date?
+    dynamic var placeName: String?
 
-    class func createWaypoint (location:CLLocation, isDestination: NSNumber, driver: NSNumber, matched: NSNumber, user: KCSUser) -> Waypoint {
+    class func createWaypoint (location:CLLocation, isDestination: NSNumber, driver: NSNumber, matched: NSNumber, user: KCSUser, placeName: String) -> Waypoint {
         let wp = Waypoint()
         wp.location = location
         wp.isDestination = isDestination
         wp.driver = driver
         wp.user = user
+        wp.placeName = placeName
         return wp
     }
     
@@ -35,6 +37,8 @@ class Waypoint: NSObject {
             "driver" : "driver",
             "matched" : "matched",
             "user" : "user",
+            "date": "date",
+            "placeName" : "placeName",
             "entityID" : KCSEntityKeyId //the required _id field
         ]
     }

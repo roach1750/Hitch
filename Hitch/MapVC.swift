@@ -15,6 +15,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
     
     
     
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     var locationManager: CLLocationManager?
@@ -36,28 +37,24 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
         self.title = "Hitch"
     }
     
-    @IBAction func uploadButtonPressed(_ sender: UIBarButtonItem) {
-        
-        let kUP = KinveyUploader()
-        let sourceWaypoint = Waypoint.createWaypoint(location: currentLocation!, isDestination: NSNumber(booleanLiteral: false), driver: NSNumber(booleanLiteral: driverSwitch.isOn), matched: false, user: KCSUser.active())
-        
-        let destinationWaypoint = Waypoint.createWaypoint(location: CLLocation(latitude: (GPF.currentResult?.coordinate.latitude)!, longitude: (GPF.currentResult?.coordinate.longitude)!), isDestination: NSNumber(booleanLiteral: true), driver: NSNumber(booleanLiteral: driverSwitch.isOn), matched: false, user: KCSUser.active())
-        
-        let cDI = CoreDataInteractor()
-        let trip = cDI.createTrip(dLat: Double(destinationWaypoint.location.coordinate.latitude),
-                                   dLong: Double(destinationWaypoint.location.coordinate.longitude),
-                                   oLat: Double(sourceWaypoint.location.coordinate.latitude),
-                                   oLong: Double(sourceWaypoint.location.coordinate.longitude))
-        
-//        _ = Trip.tripWithTripInfo(trip, inManagedObjectContext: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
-        cDI.saveTripToCoreData(newTrip: trip)
-        
-        kUP.uploadWayPoint(wayPoint: sourceWaypoint)
-        kUP.uploadWayPoint(wayPoint: destinationWaypoint)
-        
+    @IBAction func nextButtonPressed(_ sender: UIBarButtonItem) {
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "configureTime" {
+            let dV = segue.destination as! ConfigureWaypointsVC
+            let originWaypoint = Waypoint.createWaypoint(location: currentLocation!, isDestination: NSNumber(booleanLiteral: false), driver: NSNumber(booleanLiteral: driverSwitch.isOn), matched: false, user: KCSUser.active(), placeName: "Current Location")
+            
+            dV.originWaypoint = originWaypoint
+            
+            let destinationWaypoint = Waypoint.createWaypoint(location: CLLocation(latitude: (GPF.currentResult?.coordinate.latitude)!, longitude: (GPF.currentResult?.coordinate.longitude)!), isDestination: NSNumber(booleanLiteral: true), driver: NSNumber(booleanLiteral: driverSwitch.isOn), matched: false, user: KCSUser.active(), placeName: (GPF.currentResult?.name)!)
+            
+            dV.destinationWaypoint = destinationWaypoint
 
+        }
+    }
+    
     
     func reloadTable() {
         tableView.reloadData()

@@ -32,11 +32,7 @@ class TripsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
 
-    @IBAction func printObjects(_ sender: UIBarButtonItem) {
-        let cDI = CoreDataInteractor()
-        cDI.fetchAllTripsFromCoreData()
-    }
-    
+
     
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
