@@ -12,7 +12,7 @@ import CoreData
 class CoreDataInteractor: NSObject {
 
 
-    func createTrip (dLat: Double, dLong: Double, oLat: Double, oLong: Double ) -> Trip {
+    func createTrip (dLat: Double, dLong: Double, oLat: Double, oLong: Double, date: Date ) -> Trip {
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Trip", in: managedObjectContext)
         let newTrip = Trip(entity: entity!, insertInto: managedObjectContext)
@@ -21,8 +21,8 @@ class CoreDataInteractor: NSObject {
         
         newTrip.detinationLongitude = dLong
         newTrip.originLatitude = oLat
-        newTrip.originLongitude = oLong
-        newTrip.creationDate = Date()
+        newTrip.originLongitude = dLat
+        newTrip.creationDate = date
         
         return newTrip
     }
@@ -43,17 +43,18 @@ class CoreDataInteractor: NSObject {
         }
     }
     
-    func fetchAllTripsFromCoreData(){
+    func fetchAllTripsFromCoreData() -> [Trip]?{
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<Trip>(entityName:"Trip")
         do {
             let results = try managedObjectContext.fetch(request)
-            print(results)
-
+            print("Feteched \(results.count) Trips")
+            return results
         }
         catch {
             print(error)
         }
+        return nil
     }
     
     func deleteAllPostFromCoreDatabase() {

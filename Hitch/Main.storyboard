@@ -359,8 +359,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JEg-ld-JOd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pa7-ni-cwz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -379,8 +377,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="scZ-WS-aw0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VBW-Tv-73X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

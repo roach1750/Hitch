@@ -38,6 +38,7 @@ class Trip: NSManagedObject {
             newtrip.detinationLongitude = trip.detinationLongitude
             newtrip.originLatitude = trip.originLatitude
             newtrip.originLongitude = trip.originLongitude
+            newtrip.creationDate = trip.creationDate
 //            newtrip.entityID = trip.entityID
         }
         return nil

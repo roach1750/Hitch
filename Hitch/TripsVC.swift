@@ -13,17 +13,18 @@ class TripsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     
+    var trips: [Trip]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
-
+    
     @IBAction func reloadData(_ sender: UIBarButtonItem) {
         let cDI = CoreDataInteractor()
-        cDI.fetchAllTripsFromCoreData()
-
+        trips = cDI.fetchAllTripsFromCoreData()
+        tableView.reloadData()
     }
     
     @IBAction func deleteAllData(_ sender: UIBarButtonItem) {
@@ -37,13 +38,22 @@ class TripsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if trips != nil {
+            return (trips?.count)!
+        }
         return 0
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath)
         
-        // Configure the cell...
+        if let trip = trips?[indexPath.row] {
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .full
+            cell.textLabel?.text = dateFormatter.string(from: trip.creationDate!)
+        }
+        
         
         return cell
     }
