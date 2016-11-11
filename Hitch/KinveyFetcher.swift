@@ -12,25 +12,6 @@ class KinveyFetcher: NSObject {
 
     
     
-    func configurePlaceQuery() -> KCSQuery {
-        //Everyone Query
-        let query = KCSQuery()
-        return query
-    }
     
-    func fetchAllWaypoints() {
-        let collection = KCSCollection(from: "Waypoint", of: Waypoint.self)
-        let store = KCSAppdataStore(collection: collection, options: nil)
-        
-        _ = store?.query(withQuery: configurePlaceQuery(), withCompletionBlock: { (downloadedData, errorOrNil) in
-            if let error = errorOrNil {
-                print("Error from downloading posts data only: \(error)")
-            }
-            else {
-                print("Fetch \(downloadedData?.count) waypoints from Kinvey")
-            }
-        },
-                         withProgressBlock: { (objects, percentComplete) in
-        })
-    }
+
 }

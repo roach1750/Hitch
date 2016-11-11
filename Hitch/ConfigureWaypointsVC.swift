@@ -33,9 +33,7 @@ class ConfigureWaypointsVC: UIViewController {
         let kUP = KinveyUploader()
         kUP.uploadTrip(trip: trip)
         
-        let RI = RealmInteractor()
-        RI.saveTrip(trip: trip)
-        
+
         let allViewController: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
         
         for aviewcontroller : UIViewController in allViewController

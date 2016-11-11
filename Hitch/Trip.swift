@@ -24,6 +24,9 @@ class Trip: Object {
     dynamic var originName = ""
     dynamic var originDate = NSDate()
     
+    
+    
+    
     //destination 
     dynamic var destinationLatitude: Double = 0.0
     dynamic var destinationLongitude: Double = 0.0
@@ -40,11 +43,15 @@ class Trip: Object {
             "isDriver" : "isDriver",
             "isMatched" : "isMatched",
             
-            "originCoordinates" : "originCoordinates",
+            "originLatitude" : "originLatitude",
+            "originLongitude" : "originLongitude",
+
             "originName" : "originName",
             "originDate" : "originDate",
             
-            "destinationCoordinates": "destinationCoordinates",
+            "destinationLatitude": "destinationLatitude",
+            "destinationLongitude": "destinationLongitude",
+
             "destinationName": "destinationName",
             "destinationDate" : "destinationDate",
             
