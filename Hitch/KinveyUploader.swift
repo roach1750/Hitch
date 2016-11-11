@@ -11,20 +11,47 @@ import UIKit
 class KinveyUploader: NSObject {
     
     
-    func uploadWayPoint(wayPoint: Waypoint) {
+    func uploadTrip(trip: Trip) {
+
         
-        let collection = KCSCollection(from: "Waypoint", of: Waypoint.self)
+        let collection = KCSCollection(from: "Trip", of: Trip.self)
         let store = KCSAppdataStore(collection: collection, options: nil)
         
-        _ = store?.save(wayPoint, withCompletionBlock: { (results, error) in
+        _ = store?.save(trip, withCompletionBlock: { (results, error) in
             if error != nil {
-                print(error as! String)
+                print(error!)
             }
             else {
-                print("Saved Waypoint\((results?[0] as! NSObject).kinveyObjectId())")
+                print("Saved Trip\((results?[0] as! NSObject).kinveyObjectId())")
+                let RI = RealmInteractor()
+                RI.saveTrip(trip: trip)
             }
             }, withProgressBlock: nil)
         
     }
+    
+    func getTripsOnSameRoute(polygon: [CLLocationCoordinate2D]) {
+        
+        var points = [[Double]]()
+        
+        for point in polygon {
+            let group = [Double(point.latitude), Double(point.longitude)]
+            points.append(group)
+        }
+        
+        print(points)
+        
+        KCSCustomEndpoints.callEndpoint("queryWithinPolygon", params: ["polygon":points]) { (results, error) in
+            if error == nil {
+                print("Success")
+                print(results!)
+                
+                
+            } else {
+                print("Polygon Error: \(error)")
+            }
+        }
+    }
+    
     
 }

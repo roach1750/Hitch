@@ -14,36 +14,27 @@ class ConfigureWaypointsVC: UIViewController {
     @IBOutlet weak var originDatePicker: UIDatePicker!
     @IBOutlet weak var destinationDatePicker: UIDatePicker!
     
-    var destinationWaypoint: Waypoint!
-    var originWaypoint: Waypoint!
+    var trip = Trip()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        originLabel.text = originWaypoint.placeName! + " Depature Time"
-        destinationLabel.text = destinationWaypoint.placeName! + " Arrival Time"
+        originLabel.text = trip.originName + " Depature Time"
+        destinationLabel.text = trip.destinationName + " Arrival Time"
     }
     
     @IBAction func uploadButtonPressed(_ sender: UIBarButtonItem) {
         
-        originWaypoint.date = originDatePicker.date
-        destinationWaypoint.date = destinationDatePicker.date
+        trip.originDate = originDatePicker.date as NSDate
+        trip.destinationDate = destinationDatePicker.date as NSDate
         
-        
-        let cDI = CoreDataInteractor()
-        let trip = cDI.createTrip(dLat: Double(destinationWaypoint!.location.coordinate.latitude),
-                                  dLong: Double(destinationWaypoint!.location.coordinate.longitude),
-                                  oLat: Double(originWaypoint!.location.coordinate.latitude),
-                                  oLong: Double(originWaypoint.location.coordinate.longitude), date: Date())
-        
-                _ = Trip.tripWithTripInfo(trip, inManagedObjectContext: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
-//        cDI.saveTripToCoreData(newTrip: trip)
+
         
         let kUP = KinveyUploader()
-        kUP.uploadWayPoint(wayPoint: originWaypoint)
-        kUP.uploadWayPoint(wayPoint: destinationWaypoint!)
+        kUP.uploadTrip(trip: trip)
         
-        
+        let RI = RealmInteractor()
+        RI.saveTrip(trip: trip)
         
         let allViewController: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
         

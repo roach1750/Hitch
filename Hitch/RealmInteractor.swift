@@ -11,6 +11,32 @@ import RealmSwift
 
 class RealmInteractor: NSObject {
 
+        
+    func saveTrip(trip: Trip) {
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(trip)
+        }
+    }
+    
+    func fetchTrips() -> [Trip]? {
+        let realm = try! Realm()
+        let allObjects = Array(realm.objects(Trip.self).sorted(byProperty: "creationDate", ascending:false))
+        return allObjects
+    }
+    
+    func deleteAllRealmObjects() {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
+    
+    
+    
+    
+    
     func saveFavoritePlace(place: FavoritePlace) {
         
         let favoritePlaces = fetchFavoritePlaces()

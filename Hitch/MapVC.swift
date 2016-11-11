@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import  GooglePlaces
-
+import RealmSwift
 
 class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource{
     
@@ -19,6 +19,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     var locationManager: CLLocationManager?
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var driverSwitch: UISwitch!
@@ -44,14 +45,42 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "configureTime" {
             let dV = segue.destination as! ConfigureWaypointsVC
-            let originWaypoint = Waypoint.createWaypoint(location: currentLocation!, isDestination: NSNumber(booleanLiteral: false), driver: NSNumber(booleanLiteral: driverSwitch.isOn), matched: false, user: KCSUser.active(), placeName: "Current Location")
             
-            dV.originWaypoint = originWaypoint
-            
-            let destinationWaypoint = Waypoint.createWaypoint(location: CLLocation(latitude: (GPF.currentResult?.coordinate.latitude)!, longitude: (GPF.currentResult?.coordinate.longitude)!), isDestination: NSNumber(booleanLiteral: true), driver: NSNumber(booleanLiteral: driverSwitch.isOn), matched: false, user: KCSUser.active(), placeName: (GPF.currentResult?.name)!)
-            
-            dV.destinationWaypoint = destinationWaypoint
+            let newTrip = Trip()
+            newTrip.creationDate = NSDate()
+            newTrip.creatorUserID = KCSUser.active().userId
+            newTrip.isDriver = driverSwitch.isOn
+            newTrip.isMatched = false
+            newTrip.originLatitude = (currentLocation?.coordinate.latitude)!
+            newTrip.originLongitude = (currentLocation?.coordinate.longitude)!
+            newTrip.originName = "Current Location"
 
+            
+          
+//            let originLat = RealmDouble()
+//            originLat.doubleValue = (currentLocation?.coordinate.latitude)!
+//            let originLog = RealmDouble()
+//            originLog.doubleValue = (currentLocation?.coordinate.longitude)!
+//            
+//            newTrip.originCoordinates.append(originLat)
+//            newTrip.originCoordinates.append(originLog)
+            
+
+            
+            
+//            let destinationLat = RealmDouble()
+//            destinationLat.doubleValue = (GPF.currentResult?.coordinate.latitude)!
+//            let destinationLog = RealmDouble()
+//            destinationLog.doubleValue = (GPF.currentResult?.coordinate.longitude)!
+//            
+//            newTrip.destinationCoordinates.append(destinationLat)
+//            newTrip.destinationCoordinates.append(destinationLog)
+
+            newTrip.destinationLatitude = (GPF.currentResult?.coordinate.latitude)!
+            newTrip.destinationLongitude = (GPF.currentResult?.coordinate.longitude)!
+            newTrip.destinationName = (GPF.currentResult?.name)!
+            dV.trip = newTrip
+            
         }
     }
     
@@ -78,7 +107,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
             let data = RI.fetchFavoritePlaces()
             return (data?.count)!
         }
-        
+            
         else if GPF.results != nil {
             return GPF.results!.count
         }
@@ -107,7 +136,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         if searchBar.text == "" {
             let RI = RealmInteractor()
             let data = RI.fetchFavoritePlaces()
@@ -183,13 +212,13 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
                 
                 var latArray = [Double]()
                 var longArray = [Double]()
-
+                
                 
                 
                 for i in 0..<pointCount! {
                     let latitude = NSNumber(value: coordsPointer[i].latitude)
                     let longitude = NSNumber(value: coordsPointer[i].longitude)
-
+                    
                     latArray.append(Double(latitude))
                     longArray.append(Double(longitude))
                     
@@ -203,13 +232,16 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
                 let minY = longArray.min()! - factor
                 let maxY = longArray.max()! + factor
                 
-
+                
                 
                 let point1 = CLLocationCoordinate2DMake(CLLocationDegrees(minX), CLLocationDegrees(minY))
                 let point2 = CLLocationCoordinate2DMake(CLLocationDegrees(maxX), CLLocationDegrees(minY))
                 let point3 = CLLocationCoordinate2DMake(CLLocationDegrees(maxX), CLLocationDegrees(maxY))
                 let point4 = CLLocationCoordinate2DMake(CLLocationDegrees(minX), CLLocationDegrees(maxY))
-                let points = [point1, point2, point3, point4, point1]
+//                let points = [point1, point2, point3, point4, point1]
+                let points = [point1, point2, point3, point4]
+                
+                
                 
                 for point in points {
                     let wMA = WaypointMapAnnotation(title: nil, subtitle: nil, coordinate: CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude), color: UIColor.green)
@@ -217,12 +249,14 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
                     self.mapView.addAnnotation(wMA)
                 }
                 
-//                self.addCoordsToMap(coords: coords)
+                //                self.addCoordsToMap(coords: coords)
                 self.mapView.addOverlays([(route?.polyline)!], level: .aboveRoads)
-                self.title = "Click to Upload"
                 
                 
                 self.addOverlay(points: points)
+                
+                let kUP = KinveyUploader()
+                kUP.getTripsOnSameRoute(polygon: points)
                 
             }
         }
@@ -241,7 +275,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
             let long = dictPair["longitude"]!
             
             let mapPin = WaypointMapAnnotation(title: nil, subtitle: nil, coordinate: CLLocationCoordinate2D(latitude: lat as! CLLocationDegrees, longitude: long as! CLLocationDegrees), color: UIColor.green)
-
+            
             mapView.addAnnotation(mapPin)
             
         }
@@ -256,15 +290,15 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
             polylineRenderer.lineWidth = 5
             mapView.setVisibleMapRect(overlay.boundingMapRect, edgePadding: UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0), animated: true)
         }
-        
+            
         else if (overlay is MKPolygon) {
             
             polylineRenderer.fillColor = UIColor.black
             polylineRenderer.strokeColor = UIColor.green.withAlphaComponent(1.0)
-
+            
             polylineRenderer.alpha = 1.0
             polylineRenderer.lineWidth = 5
-
+            
         }
         
         return polylineRenderer
@@ -304,8 +338,8 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
             self.locationManager!.delegate = self
             self.locationManager!.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager!.startUpdatingLocation()
-            }, rejected: {
-                print("Location denied")
+        }, rejected: {
+            print("Location denied")
         })
     }
     

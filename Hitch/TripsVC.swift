@@ -22,14 +22,14 @@ class TripsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBAction func reloadData(_ sender: UIBarButtonItem) {
-        let cDI = CoreDataInteractor()
-        trips = cDI.fetchAllTripsFromCoreData()
+        let RI = RealmInteractor()
+        trips = RI.fetchTrips()
         tableView.reloadData()
     }
     
     @IBAction func deleteAllData(_ sender: UIBarButtonItem) {
-        let cDI = CoreDataInteractor()
-        cDI.deleteAllPostFromCoreDatabase()
+        let RI = RealmInteractor()
+        RI.deleteAllRealmObjects()
     }
     
 
@@ -46,12 +46,14 @@ class TripsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath)
-        
+
         if let trip = trips?[indexPath.row] {
+            
+            cell.textLabel?.text = trip.destinationName
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .full
-            cell.textLabel?.text = dateFormatter.string(from: trip.creationDate!)
+            cell.detailTextLabel?.text = dateFormatter.string(from: trip.creationDate as Date)
         }
         
         
