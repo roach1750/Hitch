@@ -30,28 +30,7 @@ class KinveyUploader: NSObject {
         
     }
     
-    func getTripsOnSameRoute(polygon: [CLLocationCoordinate2D]) {
-        
-        var points = [[Double]]()
-        
-        for point in polygon {
-            let group = [Double(point.latitude), Double(point.longitude)]
-            points.append(group)
-        }
-        
-        print(points)
-        
-        KCSCustomEndpoints.callEndpoint("queryWithinPolygon", params: ["polygon":points]) { (results, error) in
-            if error == nil {
-                print("Success")
-                print(results!)
-                
-                
-            } else {
-                print("Polygon Error: \(error)")
-            }
-        }
-    }
+
     
     
 }

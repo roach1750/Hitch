@@ -10,8 +10,8 @@
 		2149DFFC1DC2E57F003331E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2149DFFB1DC2E57F003331E5 /* AppDelegate.swift */; };
 		2149E0061DC2E57F003331E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2149E0051DC2E57F003331E5 /* Assets.xcassets */; };
 		2149E0091DC2E57F003331E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2149E0071DC2E57F003331E5 /* LaunchScreen.storyboard */; };
-		216457A31DD55492005A6CAF /* PolygonCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216457A21DD55492005A6CAF /* PolygonCalculator.swift */; };
 		218515D21DD69D8200BF05F4 /* ResultsMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218515D11DD69D8200BF05F4 /* ResultsMapVC.swift */; };
+		218515D41DD7800F00BF05F4 /* RouteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218515D31DD7800F00BF05F4 /* RouteCalculator.swift */; };
 		21AC33671DC9679E00A84D02 /* KinveyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC33661DC9679E00A84D02 /* KinveyFetcher.swift */; };
 		21AC336B1DCAB12000A84D02 /* ConfigureWaypointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC336A1DCAB12000A84D02 /* ConfigureWaypointsVC.swift */; };
 		21BE59401DCC0881008A9D16 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE593F1DCC0881008A9D16 /* Trip.swift */; };
@@ -38,8 +38,8 @@
 		2149E0051DC2E57F003331E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2149E0081DC2E57F003331E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2149E00A1DC2E57F003331E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		216457A21DD55492005A6CAF /* PolygonCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonCalculator.swift; sourceTree = "<group>"; };
 		218515D11DD69D8200BF05F4 /* ResultsMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsMapVC.swift; sourceTree = "<group>"; };
+		218515D31DD7800F00BF05F4 /* RouteCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteCalculator.swift; sourceTree = "<group>"; };
 		21AC33661DC9679E00A84D02 /* KinveyFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyFetcher.swift; sourceTree = "<group>"; };
 		21AC336A1DCAB12000A84D02 /* ConfigureWaypointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureWaypointsVC.swift; sourceTree = "<group>"; };
 		21BE593F1DCC0881008A9D16 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 			children = (
 				21F0EACF1DC2E87500B15BCB /* User.swift */,
 				21BE593F1DCC0881008A9D16 /* Trip.swift */,
-				216457A21DD55492005A6CAF /* PolygonCalculator.swift */,
+				218515D31DD7800F00BF05F4 /* RouteCalculator.swift */,
 				21BE59431DCC269C008A9D16 /* RealmDouble.swift */,
 				21F0EAD11DC2E87500B15BCB /* RealmInteractor.swift */,
 				21F0EAD01DC2E87500B15BCB /* GooglePlaceFetcher.swift */,
@@ -297,12 +297,12 @@
 				21BE59401DCC0881008A9D16 /* Trip.swift in Sources */,
 				21F0EADE1DC2E87500B15BCB /* FavoritePlace.swift in Sources */,
 				21F0EADA1DC2E87500B15BCB /* RealmInteractor.swift in Sources */,
-				216457A31DD55492005A6CAF /* PolygonCalculator.swift in Sources */,
 				21F0EADF1DC2E87500B15BCB /* Proposer.swift in Sources */,
 				21AC33671DC9679E00A84D02 /* KinveyFetcher.swift in Sources */,
 				21F0EACD1DC2E85700B15BCB /* MapVC.swift in Sources */,
 				21F0EACE1DC2E85700B15BCB /* LoginVC.swift in Sources */,
 				21AC336B1DCAB12000A84D02 /* ConfigureWaypointsVC.swift in Sources */,
+				218515D41DD7800F00BF05F4 /* RouteCalculator.swift in Sources */,
 				21F0EAD81DC2E87500B15BCB /* User.swift in Sources */,
 				21F0EAD91DC2E87500B15BCB /* GooglePlaceFetcher.swift in Sources */,
 				21F0EADC1DC2E87500B15BCB /* KinveyUploader.swift in Sources */,

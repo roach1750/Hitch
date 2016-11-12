@@ -17,11 +17,12 @@ class ResultsMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelega
     @IBOutlet weak var tableView: UITableView!
     
     let kF = KinveyFetcher()
-
+    
+    let routeCalc = RouteCalculator.sharedInstance
     
     var seletedTrip: Trip? {
         didSet{
-            kF.fetchAllTrips()
+            routeCalc.calculateDirectionsForTrip(trip: seletedTrip!)
         }
     }
     
@@ -30,8 +31,25 @@ class ResultsMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         addRouteToMapForTrip(trip: seletedTrip!, color: UIColor.red)
-        NotificationCenter.default.addObserver(self, selector: #selector(ResultsMapVC.reloadTable), name: NSNotification.Name(rawValue: "TripsFetched"), object: nil)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(ResultsMapVC.reloadTable), name: NSNotification.Name(rawValue: "TripsFetched"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ResultsMapVC.fetchSimilarRoutes), name: NSNotification.Name(rawValue: "RouteCalculated"), object: nil)
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "TripsFetched"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "RouteCalculated"), object: nil)
+    }
+    
+    func fetchSimilarRoutes(){
+        kF.getTripsOnSameRoute(polygon: routeCalc.routePolygonPonts!)
+        
+    }
+    
+    
 
     func reloadTable(){
         tripResults  = kF.tripResults

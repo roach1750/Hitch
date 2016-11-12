@@ -25,6 +25,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
     @IBOutlet weak var driverSwitch: UISwitch!
     
     let GPF = GooglePlaceFetcher.sharedInstance
+    let RouteCalc = RouteCalculator.sharedInstance
     var currentLocation: CLLocation?
     
     override func viewDidLoad() {
@@ -32,11 +33,22 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
         requestLocationData()
         tableView.isHidden = true
         print("User Is: \(KCSUser.active().username)")
-        NotificationCenter.default.addObserver(self, selector: #selector(MapVC.reloadTable), name: NSNotification.Name(rawValue: "GoogleAutoCompleteDone"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(MapVC.addPlaceToMap), name: NSNotification.Name(rawValue: "GMSPlaceDownloaded"), object: nil)
-        
+
         self.title = "Hitch"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(MapVC.reloadTable), name: NSNotification.Name(rawValue: "GoogleAutoCompleteDone"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapVC.addPlaceToMap), name: NSNotification.Name(rawValue: "GMSPlaceDownloaded"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapVC.addRouteToMap), name: NSNotification.Name(rawValue: "RouteCalculated"), object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "GoogleAutoCompleteDone"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "GMSPlaceDownloaded"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "RouteCalculated"), object: nil)
+    }
+    
     
 
     
@@ -170,87 +182,36 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
     }
     
     func calculateRouteToPlace(place: GMSPlace) {
-        let request = MKDirectionsRequest()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: (currentLocation?.coordinate)!))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: place.coordinate))
-        request.transportType = .automobile
         
-        request.requestsAlternateRoutes = true
+
+        let sourcePlacemark = MKPlacemark(coordinate: (currentLocation?.coordinate)!)
+        let destinationPlacemark = MKPlacemark(coordinate: place.coordinate)
+        RouteCalc.calculateDirectionsForPlacemark(fromPlace: sourcePlacemark, toPlace: destinationPlacemark)
         
-        let directions = MKDirections(request: request)
-        
-        directions.calculate { (response, error) in
-            if error == nil {
-                let route = response?.routes[0]
-                
-                
-                let pointCount = route?.polyline.pointCount
-                
-                let coordsPointer = UnsafeMutablePointer<CLLocationCoordinate2D>.allocate(capacity: pointCount!)
-                
-                route?.polyline.getCoordinates(coordsPointer, range: NSRange(location: 0, length: pointCount!))
-                
-                
-                var coords: [Dictionary<String, AnyObject>] = []
-                
-                var latArray = [Double]()
-                var longArray = [Double]()
-                
-                
-                
-                for i in 0..<pointCount! {
-                    let latitude = NSNumber(value: coordsPointer[i].latitude)
-                    let longitude = NSNumber(value: coordsPointer[i].longitude)
-                    
-                    latArray.append(Double(latitude))
-                    longArray.append(Double(longitude))
-                    
-                    let coord = ["latitude" : latitude, "longitude" : longitude]
-                    coords.append(coord)
-                }
-                
-                let factor = 0.005
-                let minX = latArray.min()! - factor
-                let maxX = latArray.max()! + factor
-                let minY = longArray.min()! - factor
-                let maxY = longArray.max()! + factor
-                
-                
-                
-                let point1 = CLLocationCoordinate2DMake(CLLocationDegrees(minX), CLLocationDegrees(minY))
-                let point2 = CLLocationCoordinate2DMake(CLLocationDegrees(maxX), CLLocationDegrees(minY))
-                let point3 = CLLocationCoordinate2DMake(CLLocationDegrees(maxX), CLLocationDegrees(maxY))
-                let point4 = CLLocationCoordinate2DMake(CLLocationDegrees(minX), CLLocationDegrees(maxY))
-//                let points = [point1, point2, point3, point4, point1]
-                let points = [point1, point2, point3, point4]
-                
-                
-                
-                for point in points {
-                    let wMA = WaypointMapAnnotation(title: nil, subtitle: nil, coordinate: CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude), color: UIColor.green)
-                    
-                    self.mapView.addAnnotation(wMA)
-                }
-                
-                //                self.addCoordsToMap(coords: coords)
-                self.mapView.addOverlays([(route?.polyline)!], level: .aboveRoads)
-                
-                
-                self.addOverlay(points: points)
-                
-                let kUP = KinveyUploader()
-                kUP.getTripsOnSameRoute(polygon: points)
-                
-            }
-        }
+
     }
     
+    //Addes the route to map and then adds the polygon points to the map in green
+    func addRouteToMap() {
+        let route = RouteCalc.routes![0]
+        let routePolygon = RouteCalc.routePolygonPonts
+        
+        for point in routePolygon! {
+            let wMA = WaypointMapAnnotation(title: nil, subtitle: nil, coordinate: CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude), color: UIColor.green)
+            self.mapView.addAnnotation(wMA)
+        }
+        self.mapView.addOverlays([(route.polyline)], level: .aboveRoads)
+        addOverlay(points: routePolygon!)
+    }
+
+    
+
     func addOverlay(points: [CLLocationCoordinate2D])
     {
         let polygon = MKPolygon(coordinates: points, count: points.count)
         self.mapView.add(polygon)
     }
-    
+
     
     func addCoordsToMap(coords:[Dictionary<String, AnyObject>] ) {
         for dictPair in coords {
@@ -309,11 +270,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
         }
     }
     
-    
-    
-    
-    
-    
+        
     func requestLocationData() {
         let location: PrivateResource = .location(.whenInUse)
         proposeToAccess(location, agreed: {
