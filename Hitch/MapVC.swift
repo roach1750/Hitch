@@ -55,26 +55,7 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
             newTrip.originLongitude = (currentLocation?.coordinate.longitude)!
             newTrip.originName = "Current Location"
 
-            
-          
-//            let originLat = RealmDouble()
-//            originLat.doubleValue = (currentLocation?.coordinate.latitude)!
-//            let originLog = RealmDouble()
-//            originLog.doubleValue = (currentLocation?.coordinate.longitude)!
-//            
-//            newTrip.originCoordinates.append(originLat)
-//            newTrip.originCoordinates.append(originLog)
-            
 
-            
-            
-//            let destinationLat = RealmDouble()
-//            destinationLat.doubleValue = (GPF.currentResult?.coordinate.latitude)!
-//            let destinationLog = RealmDouble()
-//            destinationLog.doubleValue = (GPF.currentResult?.coordinate.longitude)!
-//            
-//            newTrip.destinationCoordinates.append(destinationLat)
-//            newTrip.destinationCoordinates.append(destinationLog)
 
             newTrip.destinationLatitude = (GPF.currentResult?.coordinate.latitude)!
             newTrip.destinationLongitude = (GPF.currentResult?.coordinate.longitude)!
