@@ -21,7 +21,7 @@ class TripsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        reloadData(UIBarButtonItem())
     }
 
     

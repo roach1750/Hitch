@@ -38,6 +38,8 @@ class MapVC: UIViewController, MKMapViewDelegate, UISearchBarDelegate, CLLocatio
         self.title = "Hitch"
     }
     
+
+    
     @IBAction func nextButtonPressed(_ sender: UIBarButtonItem) {
         
     }

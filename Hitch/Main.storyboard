@@ -131,13 +131,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8dz-3B-UZI">
-                                <rect key="frame" x="0.0" y="64" width="375" height="267"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="333.5"/>
                                 <connections>
                                     <outlet property="delegate" destination="fKX-kA-8g4" id="giK-pn-sSL"/>
                                 </connections>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XcO-XF-73L">
-                                <rect key="frame" x="0.0" y="331" width="375" height="336"/>
+                                <rect key="frame" x="0.0" y="397.5" width="375" height="269.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resultCell" textLabel="hcC-HZ-BBj" detailTextLabel="uQY-Xb-Vc9" style="IBUITableViewCellStyleSubtitle" id="V8f-pO-mTF">
@@ -179,7 +179,7 @@
                             <constraint firstItem="8dz-3B-UZI" firstAttribute="top" secondItem="hAA-oN-EGg" secondAttribute="bottom" id="Qgc-HY-8eJ"/>
                             <constraint firstAttribute="trailing" secondItem="XcO-XF-73L" secondAttribute="trailing" id="WOI-B7-FqE"/>
                             <constraint firstAttribute="trailing" secondItem="8dz-3B-UZI" secondAttribute="trailing" id="X59-vq-GXs"/>
-                            <constraint firstItem="8dz-3B-UZI" firstAttribute="height" secondItem="PK1-xm-uxy" secondAttribute="height" multiplier="0.4" id="uXw-ER-DMf"/>
+                            <constraint firstItem="8dz-3B-UZI" firstAttribute="height" secondItem="PK1-xm-uxy" secondAttribute="height" multiplier="0.5" id="uXw-ER-DMf"/>
                             <constraint firstItem="XcO-XF-73L" firstAttribute="leading" secondItem="PK1-xm-uxy" secondAttribute="leading" id="uZi-Dv-zEc"/>
                         </constraints>
                     </view>
@@ -453,8 +453,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JEg-ld-JOd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pa7-ni-cwz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -473,6 +471,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="scZ-WS-aw0" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VBW-Tv-73X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
