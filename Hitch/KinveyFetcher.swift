@@ -79,6 +79,6 @@ class KinveyFetcher: NSObject {
         }, withProgressBlock: nil)
     }
     
-
+    
     
 }

@@ -17,11 +17,7 @@ class User: NSObject {
     var driver: Bool?
     var rider: Bool?
     
-    
-    
-    
     func createUser(_ firstname: String, lastName: String, driver: Bool, rider: Bool) -> User {
-        
         let user = User()
         user.firstName = firstname
         user.lastName = lastName
@@ -31,8 +27,6 @@ class User: NSObject {
     }
     
     func login(_ user: User) {
-        
-        print(user)
         
         let userName = user.firstName! + "_" + user.lastName!
         
