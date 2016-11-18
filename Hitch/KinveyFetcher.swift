@@ -9,7 +9,7 @@
 import UIKit
 
 class KinveyFetcher: NSObject {
-
+    
     var tripResults: [Trip]?
     
     class var sharedInstance: KinveyFetcher {
@@ -28,7 +28,7 @@ class KinveyFetcher: NSObject {
             let group = [Double(point.latitude), Double(point.longitude)]
             points.append(group)
         }
-
+        
         KCSCustomEndpoints.callEndpoint("queryWithinPolygon", params: ["polygon":points]) { (results, error) in
             if error == nil {
                 self.fetchTripObjectsWithIDs(ids: results as! [String])
@@ -55,7 +55,7 @@ class KinveyFetcher: NSObject {
             
         }, withProgressBlock: nil)
         
-
+        
         
     }
     
@@ -66,10 +66,10 @@ class KinveyFetcher: NSObject {
         
         _ = store?.query(withQuery: KCSQuery(), withCompletionBlock: { (results, error) in
             if error == nil {
-//                print("Fetched \((results?.count)!) Trips")
-//                self.tripResults = results as! [Trip]?
-//                
-//                NotificationCenter.default.post(name: Notification.Name(rawValue: "TripsFetched"), object: nil)
+                //                print("Fetched \((results?.count)!) Trips")
+                //                self.tripResults = results as! [Trip]?
+                //
+                //                NotificationCenter.default.post(name: Notification.Name(rawValue: "TripsFetched"), object: nil)
                 
             }
             else {
@@ -79,21 +79,6 @@ class KinveyFetcher: NSObject {
         }, withProgressBlock: nil)
     }
     
-//    func fetchUserWithID(ID: String) {
-//        if let user = KCSUser.active() {
-////            let userQuery = UserQuery {
-//                $0.email = "james.bond@mi6.com"
-//                $0.first_name = "James"
-//            }
-//            user.lookup(userQuery) { users, error in
-//                if let users = users {
-//                    //success
-//                    print("Users: \(users)")
-//                } else {
-//                    //fail
-//                }
-//            }
-//        }    }
-//    
+
     
 }
