@@ -14,6 +14,7 @@ class Trip: Object {
     //Trip Properties
     dynamic var creationDate = NSDate()
     dynamic var creatorUserID = ""
+    
     dynamic var isDriver = false
     dynamic var isMatched = false
     dynamic var entityID =  ""

@@ -53,7 +53,7 @@ class User: NSObject {
                 print("creating a new kinvey user")
                 
                 KCSUser.user(withUsername: userName, password: "bounce", fieldsAndValues: [
-                    "rider" : user.rider!, "driver" : user.driver!,
+                    "rider" : user.rider!, "driver" : user.driver!, "rating" : 0.0,
                     KCSUserAttributeGivenname : user.firstName!,
                     KCSUserAttributeSurname : user.lastName!],
                              

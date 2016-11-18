@@ -1,20 +1,20 @@
 PODS:
-  - GoogleMaps (2.1.0):
-    - GoogleMaps/Maps (= 2.1.0)
-  - GoogleMaps/Base (2.1.0)
-  - GoogleMaps/Maps (2.1.0):
-    - GoogleMaps/Base (= 2.1.0)
-  - GooglePlacePicker (2.1.0):
-    - GoogleMaps (= 2.1.0)
-    - GooglePlaces (= 2.1.0)
-  - GooglePlaces (2.1.0):
-    - GoogleMaps/Base (= 2.1.0)
-  - KinveyKit (1.41.1)
-  - Realm (2.0.3):
-    - Realm/Headers (= 2.0.3)
-  - Realm/Headers (2.0.3)
-  - RealmSwift (2.0.3):
-    - Realm (= 2.0.3)
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
+  - GooglePlacePicker (2.1.1):
+    - GoogleMaps (= 2.1.1)
+    - GooglePlaces (= 2.1.1)
+  - GooglePlaces (2.1.1):
+    - GoogleMaps/Base (= 2.1.1)
+  - KinveyKit (1.41.3)
+  - Realm (2.0.4):
+    - Realm/Headers (= 2.0.4)
+  - Realm/Headers (2.0.4)
+  - RealmSwift (2.0.4):
+    - Realm (= 2.0.4)
 
 DEPENDENCIES:
   - GoogleMaps
@@ -24,11 +24,13 @@ DEPENDENCIES:
   - RealmSwift
 
 SPEC CHECKSUMS:
-  GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
-  GooglePlacePicker: a2228b447d10008bcb765a6a081f415e8599e5d4
-  GooglePlaces: 16e96266483b8010e9f275399403647978523c86
-  KinveyKit: 1f6a3ec9b98aa97014a4ae06bd20a4be593fb6ff
-  Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
-  RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
+  GooglePlacePicker: 665f39f931f2df32f9dd3fcc45f7e8abf71e535c
+  GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
+  KinveyKit: e04da7b8e35fd082581b36d4f1e3a27647ddb000
+  Realm: 9da97f48365f8b99dd95c28d45ad8222d62e1775
+  RealmSwift: 01e8db006035f16003e6307ae8eae1adccce68db
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 8098ede931960f05178fbb3f699d3f17f2774487
+
+COCOAPODS: 1.1.1

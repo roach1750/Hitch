@@ -1,1 +1,1 @@
-../../../KinveyKit/KinveyKit-1.41.1/include/KinveyKit/KCSOfflineUpdateDelegate.h
+../../../KinveyKit/KinveyKit-1.41.3/include/KinveyKit/KCSOfflineUpdateDelegate.h

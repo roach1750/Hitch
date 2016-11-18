@@ -78,7 +78,22 @@ class KinveyFetcher: NSObject {
             
         }, withProgressBlock: nil)
     }
-
     
+//    func fetchUserWithID(ID: String) {
+//        if let user = KCSUser.active() {
+////            let userQuery = UserQuery {
+//                $0.email = "james.bond@mi6.com"
+//                $0.first_name = "James"
+//            }
+//            user.lookup(userQuery) { users, error in
+//                if let users = users {
+//                    //success
+//                    print("Users: \(users)")
+//                } else {
+//                    //fail
+//                }
+//            }
+//        }    }
+//    
     
 }

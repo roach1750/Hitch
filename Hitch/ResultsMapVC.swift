@@ -132,7 +132,7 @@ class ResultsMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelega
         if (overlay is MKPolyline) {
             polylineRenderer.strokeColor = currentRouteColor
             polylineRenderer.lineWidth = 5
-            mapView.setVisibleMapRect(overlay.boundingMapRect, edgePadding: UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0), animated: true)
+            mapView.setVisibleMapRect(overlay.boundingMapRect, edgePadding: UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0), animated: false)
         }
         
         
