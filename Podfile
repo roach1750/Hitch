@@ -23,5 +23,8 @@ post_install do |installer|
     end
 end
 
+pod 'SwiftyJSON'
+
+
 end
 

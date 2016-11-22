@@ -7,70 +7,176 @@
 //
 
 import UIKit
-
+import FBSDKCoreKit
+import FBSDKLoginKit
+import SwiftyJSON
 
 
 class User: NSObject {
 
-    var firstName: String?
-    var lastName: String?
-    var driver: Bool?
-    var rider: Bool?
-    
-    func createUser(_ firstname: String, lastName: String, driver: Bool, rider: Bool) -> User {
-        let user = User()
-        user.firstName = firstname
-        user.lastName = lastName
-        user.driver = driver
-        user.rider = rider
-        return user
-    }
-    
-    func login(_ user: User) {
-        
-        let userName = user.firstName! + "_" + user.lastName!
-        
-        KCSUser.checkUsername(userName, withCompletionBlock: { (userName, alreadyTaken, error) in
-            if alreadyTaken {
-                print("this user already exists...attempting to login")
-                
-                KCSUser.login(withUsername: userName, password: "bounce", withCompletionBlock: { (user, error, resultAction) in
-                    if user != nil {
-                        print("logged in with existing userName")
-                        
-                    } else if let error = error as? NSError {
-                        print(error.localizedDescription)
-                    }
-                })
-            }
-            else {
-                print("creating a new kinvey user")
-                
-                KCSUser.user(withUsername: userName, password: "bounce", fieldsAndValues: [
-                    "rider" : user.rider!, "driver" : user.driver!, "rating" : 0.0,
-                    KCSUserAttributeGivenname : user.firstName!,
-                    KCSUserAttributeSurname : user.lastName!],
-                             
-                             withCompletionBlock: { (user, error, resultAction) in
-                                if error == nil {
-                                    print("Created new user")
-                                    
-                                    let defaults = UserDefaults.standard
-                                    defaults.set(userName, forKey: "userName")
-                                    
-                                    
-                                    print(KCSUser.active())
+    func createUser() {
+        FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name, email, last_name, id, picture.type(large)"]).start { (connection, result, error) -> Void in
+            
+            
+            let resultsJSON = JSON(result!).dictionaryValue
+            
+            let givenName = resultsJSON["first_name"]?.rawString()
+            let surname = resultsJSON["last_name"]?.rawString()
+            let userId = resultsJSON["id"]?.rawString()
+            let email = resultsJSON["email"]?.rawString()
 
-                                } else {
-                                    print(error as! String)
-                                }
-                })
-            }
-        })
+            
+            let userName = givenName! + "_" + surname! + "_" + userId!
+            
+            KCSUser.checkUsername(userName, withCompletionBlock: { (userName, alreadyTaken, error) in
+                if alreadyTaken {
+                    print("this user already exists...attempting to login")
+                    
+                    KCSUser.login(withUsername: userName, password: "hitch", withCompletionBlock: { (user, error, resultAction) in
+                        if user != nil {
+                            print("logged in with existing userName")
+                            
+                        } else if let error = error as? NSError {
+                            print(error.localizedDescription)
+                        }
+                    })
+                }
+                else {
+                    print("creating a new kinvey user")
+                    
+                    KCSUser.user(withUsername: userName, password: "hitch", fieldsAndValues: [
+                        KCSUserAttributeEmail : email!,
+                        KCSUserAttributeGivenname : givenName!,
+                        KCSUserAttributeSurname : surname!, "Facebook User ID" : userId!],
+                                 
+                                 withCompletionBlock: { (user, error, resultAction) in
+                                    if error == nil {
+                                        print("Created new user")
+                                        print(KCSUser.active())
 
-        
+                                    } else {
+                                        print(error!)
+                                    }
+                    })
+                }
+            })
+        }
         
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    func login(_ user: User) {
+//        
+//        let userName = user.firstName! + "_" + user.lastName!
+//        
+//        KCSUser.checkUsername(userName, withCompletionBlock: { (userName, alreadyTaken, error) in
+//            if alreadyTaken {
+//                print("this user already exists...attempting to login")
+//                
+//                KCSUser.login(withUsername: userName, password: "bounce", withCompletionBlock: { (user, error, resultAction) in
+//                    if user != nil {
+//                        print("logged in with existing userName")
+//                        
+//                    } else if let error = error as? NSError {
+//                        print(error.localizedDescription)
+//                    }
+//                })
+//            }
+//            else {
+//                print("creating a new kinvey user")
+//                
+//                KCSUser.user(withUsername: userName, password: "bounce", fieldsAndValues: [
+//                    "rider" : user.rider!, "driver" : user.driver!, "rating" : 0.0,
+//                    KCSUserAttributeGivenname : user.firstName!,
+//                    KCSUserAttributeSurname : user.lastName!],
+//                             
+//                             withCompletionBlock: { (user, error, resultAction) in
+//                                if error == nil {
+//                                    print("Created new user")
+//                                    
+//                                    let defaults = UserDefaults.standard
+//                                    defaults.set(userName, forKey: "userName")
+//                                    
+//                                    
+//                                    print(KCSUser.active())
+//
+//                                } else {
+//                                    print(error as! String)
+//                                }
+//                })
+//            }
+//        })
+//
+//        
+//        
+//    }
     
     
 }
