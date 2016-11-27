@@ -22,12 +22,42 @@ class SeletedPassengerVC: UIViewController {
     @IBOutlet weak var pickUpTimeLabel: UILabel!
     @IBOutlet weak var dropOffTimeLabel: UILabel!
     
+    let userFetcher = User()
+
+    
     var selectedTrip: Trip?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("The user who created this trip has an ID that is: \( selectedTrip?.creatorUserID)")
+        
+        userFetcher.fetchUser(withID: selectedTrip!.creatorUserID)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(SeletedPassengerVC.userFetched), name: NSNotification.Name(rawValue: "UserDownloaded"), object: nil)
 
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "UserDownloaded"), object: nil)
+    }
+    
+    
+    
+    func userFetched() {
+        let firstName = userFetcher.fetchedUser?.givenName
+        let lastName = userFetcher.fetchedUser?.surname
+        let passengerName = firstName! + " " + lastName!
+        passengerNameLabel.text = passengerName
+        
+        
+        
+    }
+    
+    
+    
     
     @IBAction func requestButtonPressed(_ sender: UIBarButtonItem) {
         

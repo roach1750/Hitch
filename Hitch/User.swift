@@ -65,7 +65,27 @@ class User: NSObject {
     }
 
     
+    var fetchedUser: KCSUser?
     
+    func fetchUser(withID: String) {
+        
+        print("Fetching User for ID \(withID)...")
+            
+        KCSUserDiscovery.lookupUsers(forFieldsAndValues: ["_id" : withID], completionBlock: { (result, error) in
+            if error == nil {
+                self.fetchedUser = result?.first as? KCSUser
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "UserDownloaded"), object: nil)
+
+            }
+            else {
+            
+            }
+            
+            }, progressBlock: nil)
+        
+        
+        
+    }
     
     
     

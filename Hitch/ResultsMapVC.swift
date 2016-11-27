@@ -76,7 +76,7 @@ class ResultsMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelega
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
         if let trip = tripResults?[indexPath.row] {
             if mapView.overlays.count > 1 {
                 mapView.remove(mapView.overlays.last!)
@@ -161,6 +161,13 @@ class ResultsMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelega
         }
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectPassengerSegue" {
+            let dV = segue.destination as! SeletedPassengerVC
+            dV.selectedTrip = tripResults?[(tableView.indexPathForSelectedRow?.row)!]
+        }
+    }
     
     
     
