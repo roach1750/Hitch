@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Cosmos
 
 class SeletedPassengerVC: UIViewController {
 
@@ -17,7 +18,9 @@ class SeletedPassengerVC: UIViewController {
     
     @IBOutlet weak var passengerImageView: UIImageView!
     @IBOutlet weak var passengerNameLabel: UILabel!
-    @IBOutlet var stars: [UIImageView]!
+    
+    @IBOutlet weak var passengerRatingStars: CosmosView!
+    
     
     @IBOutlet weak var pickUpTimeLabel: UILabel!
     @IBOutlet weak var dropOffTimeLabel: UILabel!
@@ -55,6 +58,7 @@ class SeletedPassengerVC: UIViewController {
         let lastName = userFetcher.fetchedUser?.surname
         let passengerName = firstName! + " " + lastName!
         passengerNameLabel.text = passengerName
+        setStarFill(withValue: 4.65)
         print(userFetcher.fetchedUser!)
         userFetcher.fetchFBUserProfilePicture(id: "10207801610258024")
     }
@@ -64,8 +68,8 @@ class SeletedPassengerVC: UIViewController {
     }
     
     
-    func setStarFill(withValue: Int){
-        
+    func setStarFill(withValue: Double){
+        passengerRatingStars.rating = withValue
     }
     
     

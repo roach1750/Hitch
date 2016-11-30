@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Cosmos.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3E4A6181E6D3BDAA471190BFAFE7D0E2</key>
+		<key>25EDCD77694C56C8279B11E1754A64B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68CCE8DC33CDCEEEA2FC95E2DB41BA55</key>
+		<key>4CD4D57D80FF70E55BD8087098879BD7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A28A58A53F81E0BC1FF74A920349047F</key>
+		<key>88507F0598E304F12571D13586267B7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
+		<key>DF17EEC349D2388D401FBEA832064149</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC3CAA37844BC3A70E22893B08D7E906</key>
+		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
