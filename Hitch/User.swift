@@ -82,121 +82,25 @@ class User: NSObject {
             }
             
             }, progressBlock: nil)
-        
-        
-        
+    }
+    
+    var fetchedUserPicture: Data?
+
+    
+    func fetchFBUserProfilePicture(id: String){
+        if let url = NSURL(string: "https://graph.facebook.com/\(id)/picture?width=640&height=640"){
+            do {
+                fetchedUserPicture = try Data(contentsOf: url as URL)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "UserPictureDownloaded"), object: nil)
+
+            
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    func login(_ user: User) {
-//        
-//        let userName = user.firstName! + "_" + user.lastName!
-//        
-//        KCSUser.checkUsername(userName, withCompletionBlock: { (userName, alreadyTaken, error) in
-//            if alreadyTaken {
-//                print("this user already exists...attempting to login")
-//                
-//                KCSUser.login(withUsername: userName, password: "bounce", withCompletionBlock: { (user, error, resultAction) in
-//                    if user != nil {
-//                        print("logged in with existing userName")
-//                        
-//                    } else if let error = error as? NSError {
-//                        print(error.localizedDescription)
-//                    }
-//                })
-//            }
-//            else {
-//                print("creating a new kinvey user")
-//                
-//                KCSUser.user(withUsername: userName, password: "bounce", fieldsAndValues: [
-//                    "rider" : user.rider!, "driver" : user.driver!, "rating" : 0.0,
-//                    KCSUserAttributeGivenname : user.firstName!,
-//                    KCSUserAttributeSurname : user.lastName!],
-//                             
-//                             withCompletionBlock: { (user, error, resultAction) in
-//                                if error == nil {
-//                                    print("Created new user")
-//                                    
-//                                    let defaults = UserDefaults.standard
-//                                    defaults.set(userName, forKey: "userName")
-//                                    
-//                                    
-//                                    print(KCSUser.active())
-//
-//                                } else {
-//                                    print(error as! String)
-//                                }
-//                })
-//            }
-//        })
-//
-//        
-//        
-//    }
     
     
 }

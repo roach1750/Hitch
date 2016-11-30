@@ -37,11 +37,15 @@ class SeletedPassengerVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(SeletedPassengerVC.userFetched), name: NSNotification.Name(rawValue: "UserDownloaded"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SeletedPassengerVC.userPictureFetched), name: NSNotification.Name(rawValue: "UserPictureDownloaded"), object: nil)
+
 
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "UserDownloaded"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "UserPictureDownloaded"), object: nil)
+
     }
     
     
@@ -51,10 +55,21 @@ class SeletedPassengerVC: UIViewController {
         let lastName = userFetcher.fetchedUser?.surname
         let passengerName = firstName! + " " + lastName!
         passengerNameLabel.text = passengerName
-        
-        
+        print(userFetcher.fetchedUser!)
+        userFetcher.fetchFBUserProfilePicture(id: "10207801610258024")
+    }
+    
+    func userPictureFetched(){
+        passengerImageView.image = UIImage(data: userFetcher.fetchedUserPicture!)
+    }
+    
+    
+    func setStarFill(withValue: Int){
         
     }
+    
+    
+    
     
     
     

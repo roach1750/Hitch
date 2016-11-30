@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'Hitch' do
 pod 'KinveyKit'
+pod 'Cosmos', '~> 7.0'
 
  pod 'GooglePlaces'
   pod 'GooglePlacePicker'

@@ -52,14 +52,12 @@ class Trip: Object {
             
             "destinationLatitude": "destinationLatitude",
             "destinationLongitude": "destinationLongitude",
-
             "destinationName": "destinationName",
             "destinationDate" : "destinationDate",
-            
-                        
             "entityID" : KCSEntityKeyId //the required _id field
         ]
     }
+    
     
     
     
