@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         ///Kinvey
+        
+        
+//        Kinvey.sharedClient.userType = CustomUser.self
+//        KCSClient.shared().userType = User.self
+        
         KCSClient.shared().initializeKinveyService(
             forAppKey: "kid_B1ZepkPyx",
             withAppSecret: "fe939e11b26a46c98391825adfe81c38",
